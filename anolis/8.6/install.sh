@@ -178,9 +178,9 @@ sleep 2m
 
 # Create partitions.
 default_device=/dev/mmcblk0
-# if [ -b /dev/nvme0n1 ]; then
-#     default_device="/dev/$(cd /sys/block; /bin/ls -1d nvme* | sort -n | tail -1)"
-# fi
+if [ -b /dev/nvme0n1 ]; then
+    default_device="/dev/$(cd /sys/block; /bin/ls -1d nvme* | sort -n | tail -1)"
+fi
 device=${device:-"$default_device"}
 
 if [ "$SHRED_DRIVES" == "yes" ]; then
