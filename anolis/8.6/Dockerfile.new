@@ -1,0 +1,22 @@
+from --platform=linux/arm64 openanolis/anolisos:8.6
+ADD qemu-aarch64-static /usr/bin/
+
+# ARG BASE_URL
+# ARG DOCA_VERSION
+# ARG BSP_VERSION
+# ARG DISTRO
+# ARG DISTRO_VERSION
+WORKDIR /root/workspace
+ADD mlxbf-bootimages-signed-4.2.1-12867.aarch64.rpm .
+ADD install.sh .
+ADD create_bfb .
+ADD bootimages bootimages/
+ADD build_anolis_bfb .
+
+ENV RUN_FW_UPDATER=no
+
+# Set releasever to 8.6
+RUN echo 8.6 > /etc/dnf/vars/dockerreleasever
+RUN sed -i -e "s/releasever/dockerreleasever/g" /etc/yum.repos.d/*repo
+
+CMD [ "/root/workspace/build_anolis_bfb" ]
