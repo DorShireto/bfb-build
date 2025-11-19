@@ -57,11 +57,14 @@ RUN echo 'excludepkgs=OpenIPMI strongswan*el9' >> /etc/dnf/dnf.conf && \
         kernel \
         kernel-core \
         kernel-devel \
+        kernel-devel-matched \
         kernel-headers \
         kernel-modules \
         kernel-modules-core \
         kernel-modules-extra \
+        kernel-tools \
         kernel-tools-libs \
+        python3-perf \
         kexec-tools \
         kubeadm \
         kubelet \
@@ -96,6 +99,7 @@ RUN echo 'excludepkgs=OpenIPMI strongswan*el9' >> /etc/dnf/dnf.conf && \
         rsync \
         sg3_utils \
         shim \
+        spdk \
         sshpass \
         sudo \
         sysstat \
@@ -115,6 +119,7 @@ RUN echo 'excludepkgs=OpenIPMI strongswan*el9' >> /etc/dnf/dnf.conf && \
         doca-runtime \
         doca-devel \
         mlnx-snap \
+        mlnx-libsnap \
         mft-autocomplete \
         mstflint \
         strongswan \
