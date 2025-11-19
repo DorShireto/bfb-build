@@ -76,9 +76,9 @@ RUN echo 'excludepkgs=OpenIPMI network-scripts-openvswitch' >> /etc/dnf/dnf.conf
         python3-pip \
         qemu-kvm \
         rasdaemon \
-        rsyslog \
         sg3_utils \
         shim \
+        spdk \
         sshpass \
         sudo \
         sysstat \
@@ -100,6 +100,7 @@ RUN echo 'excludepkgs=OpenIPMI network-scripts-openvswitch' >> /etc/dnf/dnf.conf
         doca-runtime \
         doca-devel \
         mlnx-snap \
+        mlnx-libsnap \
         strongswan \
         ${MLNX_FW_UPDATER} \
         ${BMC_FW_PACKAGES} \
